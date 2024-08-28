@@ -1,0 +1,18 @@
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+
+{{ super() }}
+<link rel = "stylesheet" href="{{ url_for('static', filename = 'styles.css')}}">
+{% endblock %}
+
+
+{% block title %}Welcome{% endblock %}
+
+
+{% block content %}
+<h1>Welcome Citizen!</h1>
+<p>
+    Learn the constitution the Fun way!
+</p>
+<a href="{{ url_for('login') }}">Go to Login Page</a>
+{% endblock %}
