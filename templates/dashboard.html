@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>Welcome</title>
-    <link rel="stylesheet" type="text/css"  th:href="@{/css/styles.css}">
-</head>
-<body>
-<h1>Welcome!</h1>
-<a th:href="@{/lesson1}">lesson 1 </a>
-</body>
-</html>
+
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+
+{{ super() }}
+<link rel = "stylesheet" href="{{ url_for('static', filename = 'styles.css')}}">
+{% endblock %}
+
+
+{% block title %}Constitution{% endblock %}
+
+
+{% block content %}
+<h1>Welcome {{current_user.name.title()}}!</h1>
+
+<a href="{{ url_for('lesson1') }}">Lesson 1</a> <br>
+<a href="{{ url_for('lesson1') }}">Lesson 2</a> <br>
+<a href="{{ url_for('lesson1') }}">Lesson 3</a> <br>
+<a href="{{ url_for('lesson1') }}">Lesson 4</a> <br>
+<a href="{{ url_for('lesson1') }}">Lesson 5</a> <br>
+
+<a href = "{{url_for('home')}}" role="button">logout</a>
+{% endblock %}

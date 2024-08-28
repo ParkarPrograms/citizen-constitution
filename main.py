@@ -71,7 +71,7 @@ def login():
         else:
 
             login_user(user)
-        return redirect(url_for('home'))
+        return redirect(url_for('dashboard'))
     return render_template("login.html", form = form)
 
 
@@ -102,8 +102,18 @@ def register():
         return redirect(url_for('home'))
     return render_template("register.html", form=form)
 
-with app.app_context():
-    db.create_all()
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html', current_user=current_user)
+
+
+@app.route('/lesson1')
+def lesson1():
+    return render_template('lesson1.html')
+
+# with app.app_context():
+#     db.create_all()
 
 
 # Run the application

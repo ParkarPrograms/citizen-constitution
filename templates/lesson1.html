@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preamble of the Indian Constitution</title>
-    <link rel="stylesheet" type="text/css"  th:href="@{/css/styles.css}">
-</head>
-<body>
+
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+
+{{ super() }}
+<link rel = "stylesheet" href="{{ url_for('static', filename = 'styles.css')}}">
+{% endblock %}
+
+
+{% block title %}Lesson 1{% endblock %}
+
+
+{% block content %}
 <div class="container">
     <h1>Preamble of the Indian Constitution</h1>
     <p>
@@ -29,5 +32,6 @@
         IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.
     </p>
 </div>
-</body>
-</html>
+
+<a href="{{ url_for('dashboard') }}">Dashboard</a>
+{% endblock %}
