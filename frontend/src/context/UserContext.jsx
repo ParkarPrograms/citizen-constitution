@@ -11,6 +11,15 @@ export function UserProvider({ children }) {
     if (storedUser) setUser(storedUser);
   }, []);
 
+  useEffect(() => {
+    // Store user in localStorage whenever user state changes
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+  }, [user]); 
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

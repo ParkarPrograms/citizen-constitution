@@ -3,14 +3,13 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 
-const NavBar = () => {
+function NavBar() {
   const { user, setUser } = useUser(); // Access user data from context
   const navigate = useNavigate();
 
   const handleLogout = () => {
     // Clear user context and localStorage
     setUser(null);
-    localStorage.removeItem('user');
     navigate('/'); // Redirect to home page
   };
 

@@ -6,7 +6,7 @@ import ChapterPage from './pages/ChapterPage';
 import LessonPage from './pages/LessonPage';
 import GamePage from './pages/GamePage';
 import LoginPage from './pages/LoginPage';
-import Navbar from './Components/Navbar';
+import NavBar from './Components/NavBar';
 // import Footer from './Components/Footer';
 import PrivateRoute from './routes/PrivateRoute';
 import AuthRoute from './routes/AuthRoute'
@@ -15,7 +15,7 @@ import RegisterPage from './pages/RegisterPage';
 function App() {
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +24,7 @@ function App() {
           <Route path="/chapters" element={<PrivateRoute element={<ChaptersPage />} />} />
           <Route path="/chapter/:chapterId" element={<PrivateRoute element={<ChapterPage />} />} />
           <Route path="/chapter/:chapterId/lesson/:lessonId" element={<PrivateRoute element={<LessonPage />} />} />
+
           <Route path="/chapter/:chapterId/game/:gameId" element={<PrivateRoute element={<GamePage />} />} />
         </Routes>
       </main>
