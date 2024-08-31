@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import TrueFalseGame from '../Components/Game/TrueFalseGame';
 import MultipleChoiceGame from '../Components/Game/MultipleChoiceGame';
+import MatchTheFollowingGame from './Game/MatchTheColumnGame';
 
 const gameComponents = {
   truefalse: TrueFalseGame,
   multiplechoice: MultipleChoiceGame,
+  match: MatchTheFollowingGame
   // Add other game components here
 };
 
@@ -28,7 +30,6 @@ function GameCarousel({ games }) {
   };
 
   const handleNextClick = () => {
-    console.log("Next clicked")
     if(!activeGame)
         setActiveGameIndex((activeGameIndex + 1) % games.length)
   };
@@ -52,22 +53,22 @@ function GameCarousel({ games }) {
      interval={null}
      indicators={false}
      nextIcon={
-     <div 
-        className="h-100 w-100 d-flex justify-content-center align-items-center" 
-        onClick={handleNextClick} 
-         >
-            <span className='carousel-control-next-icon' hidden={activeGame} />
-    </div>
-    }
-    prevIcon={
-     <div 
-        className="h-100 w-100 d-flex justify-content-center align-items-center" 
-        onClick={handlePrevClick} 
-         >
-            <span className='carousel-control-prev-icon' hidden={activeGame}/>
-    </div>
-    }
-     >
+        <div 
+            className="h-100 w-100 d-flex justify-content-center align-items-center" 
+            onClick={handleNextClick} 
+            >
+                <span className='carousel-control-next-icon' hidden={activeGame} />
+        </div>
+      }
+     prevIcon={
+        <div 
+            className="h-100 w-100 d-flex justify-content-center align-items-center" 
+            onClick={handlePrevClick} 
+            >
+                <span className='carousel-control-prev-icon' hidden={activeGame}/>
+        </div>
+     }
+    >
       {games.map((game, index) => (
         <Carousel.Item key={game.id}>
           <div style={carouselItemStyle}>

@@ -11,7 +11,8 @@ function LessonPage() {
   ]);
   const [games, setGames] = useState([
     {id: 1, type: 'truefalse', name: 'True / False'},
-    {id: 2, type: 'truefalse', name: 'Multi Choice'}
+    {id: 2, type: 'match', name: 'Match the Column'},
+    {id: 3, type: 'multiplechoice', name: 'Multi Choice'}
   ]);
 
 
